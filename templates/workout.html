@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="../static/styles/workout.css">
+{% endblock %}
+{% block content %}
+<p id="para">upload the video file of your workout here</p>
+<form method="POST">
+    <div class="video-container">
+        <input type="file" id="videoFile" accept="video/*" onchange="loadVideoFile()" />
+    
+    </div>
+    <button type="submit">Analyse Your workout</button>
+</form>
+
+
+{% endblock %}

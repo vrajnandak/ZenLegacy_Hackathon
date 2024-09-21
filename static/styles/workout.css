@@ -1,0 +1,30 @@
+#webcam {
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1); /* For Safari */
+    border-radius: 20px;
+    width: 640px;
+    height: 480px;
+}
+
+/* Center the video element at the top */
+.video-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items at the top */
+    align-items: center;
+     /* Full viewport height */
+    padding-top: 5%; /* Add space at the top */
+}
+
+#videoFile {
+    margin-bottom: 20px; /* Add space between the input and video */
+}
+
+#para {
+    font-style: normal;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,59 @@
+/* Center the form */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align form items to the top */
+    align-items: center; /* Center the form horizontally */
+    margin-top: 50px; /* Add margin at the top */
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; /* Ensure the form width is just enough for the content */
+}
+
+/* Style for the form labels */
+.input-label{
+    display:inline-block;
+}
+.label{
+    width:100%;
+}
+label {
+    color: white; /* Make the labels white */
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-right: 1rem;
+    text-align: right;
+    align-items: right;
+}
+
+/* Style the input fields */
+input[type="number"] {
+    padding: 5px;
+    margin-bottom: 5px; /* Increase the gap between inputs */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 90%; /* Optional: control the width of the input fields */
+    font-size: 16px;
+}
+
+/* Style for the button */
+.button {
+    background-color: #ffffff;
+    color: black;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 0px;
+    font-weight:bold;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Add some space around the form elements */
+div {
+    margin-bottom: 20px;
+}

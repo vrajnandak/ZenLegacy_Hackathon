@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div id="timer">120</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    // Set the initial time
+    let timeLeft = 120;
+
+    // Get the timer element
+    const timerElement = document.getElementById('timer');
+
+    // Create the countdown function
+    function countdown() {
+        if (timeLeft > 0) {
+            timeLeft--; // Decrease the time by 1 second
+            timerElement.textContent = timeLeft; // Update the displayed time
+        } else {
+            clearInterval(timer); // Stop the timer when it reaches 0
+        }
+    }
+
+    // Run the countdown every second (1000 milliseconds)
+    const timer = setInterval(countdown, 1000);
+</script>
+{% endblock %}
