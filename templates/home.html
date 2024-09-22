@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" href="../static/styles/home.css">
+{% endblock %}
+{% block content %}
+    <p id="introPara">Welcome to IntelliFit, Your AI-powered personal trainer!</p>
+    <div>
+        <div class="button-container">
+            <button class="button" onclick="submitExercises()">Hit It!</button>
+        </div>
+    <div>
+    <div onclick="toggleTick(this)" class="gallery" data-exercise="BENCH PRESS">
+        <img src="{{ url_for('static', filename='images/benchpress.png') }}" alt="Bench Press" width="600" height="400">
+        <div class="overlay">
+            <div class="text">BENCH PRESS</div>
+        </div>
+        <div class="tick" style="display: none;">✔️</div>
+    </div>
+
+    <div class="gallery" onclick="toggleTick(this)" data-exercise="JUMPING JACK">
+        <img src="{{ url_for('static', filename='images/jumpingjack.png') }}" alt="Jumping Jack" width="600" height="400">
+        <div class="overlay">
+            <div class="text">JUMPING JACK</div>
+        </div>
+        <div class="tick" style="display: none;">✔️</div>
+    </div>
+
+    <div class="gallery" onclick="toggleTick(this)" data-exercise="SQUAT">
+        <img src="{{ url_for('static', filename='images/squat.png') }}" alt="Squat" width="600" height="400">
+        <div class="overlay">
+            <div class="text">SQUAT</div>
+        </div>
+        <div class="tick" style="display: none;">✔️</div>
+    </div>
+
+    <div class="gallery" onclick="toggleTick(this)" data-exercise="PLANK">
+        <img src="{{ url_for('static', filename='images/plank.png') }}" alt="Plank" width="600" height="400">
+        <div class="overlay">
+            <div class="text">PLANK</div>
+        </div>
+        <div class="tick" style="display: none;">✔️</div>
+    </div>
+    <div onclick="toggleTick(this)" class="gallery" data-exercise="LATERAL RISE">
+        <img src="{{ url_for('static', filename='images/LateralRise.png') }}" alt="LATERAL RISE" width="600" height="400">
+        <div class="overlay">
+            <div class="text">LATERAL RISE</div>
+        </div>
+        <div class="tick" style="display: none;">✔️</div>
+    </div>
+    <div onclick="toggleTick(this)" class="gallery" data-exercise="LEG EXTENSION">
+        <img src="{{ url_for('static', filename='images/LegExtension.png') }}" alt="Leg Extension" width="600" height="400">
+        <div class="overlay">
+            <div class="text">LEG EXTENSION</div>
+        </div>
+        <div class="tick" style="display: none;">✔️</div>
+    </div>
+
+    <div class="gallery" onclick="toggleTick(this)" data-exercise="PUSHUP">
+        <img src="{{ url_for('static', filename='images/pushup.png') }}" alt="Pushup" width="600" height="400">
+        <div class="overlay">
+            <div class="text">PUSHUP</div>
+        </div>
+        <div class="tick" style="display: none;">✔️</div>
+    </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" href="../static/styles/count.css">
+{% endblock %}
+{% block content %}
+    <form method="POST" >
+        {% for exercise in content %}
+            <div class="input-label">
+                <div class="label">
+                    <label for="{{ exercise }}">{{ exercise }}</label>
+                </div>
+                
+                <input  type="number" name="{{ exercise }}_reps" id="{{ exercise }}" min="1" placeholder="Enter number of reps">
+            </div>
+        {% endfor %}
+        <button type="submit" class="button" onclick="submitWorkout(event)">Begin Workout</button>
+    </form>
+    {% block js %}
+        <script src="{{ url_for('static', filename='javascript/count.js') }}"></script>
+    {% endblock %}
+{% endblock %}
