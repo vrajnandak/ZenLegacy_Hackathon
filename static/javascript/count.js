@@ -29,7 +29,7 @@ function submitWorkout(event) {
     .then(data => {
         console.log('Success:', data);
         //alert('Workout submitted successfully!');
-        window.location.href = '/startWorkout';
+        window.location.href = '/processVid';
     })
     .catch((error) => {
         console.error('Error:', error);

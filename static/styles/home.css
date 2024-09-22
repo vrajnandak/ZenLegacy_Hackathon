@@ -4,6 +4,7 @@ div.gallery {
     float: left;
     width: 180px;
     position: relative;
+    padding-left: 20px;
 }
 
 
@@ -30,6 +31,7 @@ div.desc {
     height: 100%;
     transform: scale(0);
     transition: .3s ease;
+    padding-left: 20px;
   }
   div.gallery:hover .overlay {
     transform: scale(1);

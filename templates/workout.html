@@ -3,14 +3,43 @@
     <link rel="stylesheet" href="../static/styles/workout.css">
 {% endblock %}
 {% block content %}
-<p id="para">upload the video file of your workout here</p>
-<form method="POST">
+<div class="loading-screen" id="loadingScreen">
+    Connecting to cam and capturing video. Please Wait...
+</div>
+
+<!-- Actual content: video and review (initially hidden) -->
+<div class="container hidden" id="contentContainer">
+    <!-- Video container -->
     <div class="video-container">
-        <input type="file" id="videoFile" accept="video/*" onchange="loadVideoFile()" />
-    
+        <video width="640" id="workoutVideo" autoplay muted>
+            <source src="{{ url_for('static', filename='processedVid/ResultSped.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
-    <button type="submit">Analyse Your workout</button>
-</form>
-
-
+    <h1>Workout Review</h1>
+    <hr width="100%" size="2">
+    
+    <!-- Card with progress bar -->
+    <div id="card">
+    {% for exercise, count in content.items() %}
+    <div class="card mt-4" >
+        <div class="card-body">
+            <h3 class="card-title text-center">{{ exercise }}</h3>
+            <div class="ReviewBar">
+                <div class="w3-light-grey">
+                    {% set percentage = (exerciseDone[exercise] / count) * 100 %}
+                    <div class="w3-container" style="width: {{ percentage }}%; background-color: {% if percentage < 25 %} red {% elif percentage < 50 %} orange {% elif percentage < 75 %} yellow {% else %} green {% endif %};">
+                        {{ exerciseDone[exercise] }}/{{ count }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+</div>
+{% endblock %}
+{% block js %}
+    <script src="{{ url_for('static', filename='javascript/workout.js') }}"></script>
 {% endblock %}

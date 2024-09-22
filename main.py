@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config['processed_vid_folder'] = 'processedVid/'
 app.secret_key = "your_secret_key"  # Needed for session management
 app.config['UPLOAD_FOLDER'] = 'uploads/'  # Set the folder for uploaded files
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Limit the size to 16 MB
+app.config['MAX_CONTENT_LENGTH'] = 30 * 1024 * 1024  # Limit the size to 16 MB
 @app.route("/")
 def home():
     return render_template('home.html')
@@ -36,7 +36,9 @@ def submitCount():
     data = request.json
     
     # Log or process the workout data (e.g., save to database or file)
-    print("Received workout data:", data)
+    
+    session["exerciseCount"]=data
+    print("Received workout data: by shreyank ", session["exerciseCount"])
     
     # Here you can perform additional operations with the data, like saving it
     
@@ -67,34 +69,15 @@ def startWorkout():
         return jsonify({"status": "error", "message": "Invalid file format"})
 
     return render_template('workout.html')
-@app.route('/processVid')
+@app.route('/processVid',methods=["GET"])
 def processVid():
-    # Get the upload folder path from the app configuration
-    upload_folder = app.config['UPLOAD_FOLDER']
     
-    # List all files in the folder
-    files = os.listdir(upload_folder)
+    content=session["exerciseCount"]
+    for exercise , count in content.items():
+        content[exercise]=int(content[exercise])
+    exerciseDone={'PUSHUP':3,'LATERAL RISE':6,'LEG EXTENSION':3}
     
-    # Check if there are any files in the folder
-    if not files:
-        return jsonify({"status": "error", "message": "No videos found in the uploads folder"})
-    
-    # Since there is only one video, get its full path
-    if files:
-
-        input_video_file_path = os.path.join(upload_folder, files[0])
-    
-    # Define the output video file path
-    output_video_file_path = os.path.join(app.config['processed_vid_folder'], 'processed_vid.mov')
-    
-    # For now, just print the paths
-   # print('Input path: ', input_video_file_path)
-    #print('Output path: ', output_video_file_path)
-    
-    # If needed, call the create_video function with input and output paths
-    create_video(input_video_file_path, output_video_file_path)
-    
-    return render_template('example.html')
+    return render_template('workout.html',content=content,exerciseDone=exerciseDone)
 
         
         

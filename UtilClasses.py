@@ -444,7 +444,7 @@ class EMADictSmoothing(object):
 #Maintains the number of times that the pose '_class_name' has been detected by checking if the particular '_class_name' has been detected and the confidence score falls below exit threshold.
 class RepetitionCounter(object):
     """Counts number of repetitions of given target pose class."""
-
+    
     def __init__(self, class_name, enter_threshold=6, exit_threshold=4):
         self._class_name = class_name
 
@@ -481,6 +481,7 @@ class RepetitionCounter(object):
         Returns:
           Integer counter of repetitions.
         """
+    
         # Get pose confidence.
         pose_confidence = 0.0
         if self._class_name in pose_classification:

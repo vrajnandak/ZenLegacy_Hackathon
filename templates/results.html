@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/results.css') }}"/>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <!-- Video container -->
+    <div class="video-container">
+        <video width="640" controls>
+            <source src="{{ url_for('static', filename='processedVid/ResultSped.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <h1>Workout Review</h1>
+    <hr width="100%" size="2">
+    <!-- Card with progress bar -->
+    
+    {% for exercise, count in content.items() %}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3 class="card-title text-center">{{ exercise }}</h3>
+            <div class="ReviewBar">
+                <div class="w3-light-grey">
+                    {% set percentage = (exerciseDone[exercise] / count) * 100 %}
+                    <div class="w3-container" style="width: {{ percentage }}%; background-color: {% if percentage < 25 %} red {% elif percentage < 50 %} orange {% elif percentage < 75 %} yellow {% else %} green {% endif %};">
+                        {{ exerciseDone[exercise] }}/{{ count }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <p>You can do better! Complete the reps</p>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
