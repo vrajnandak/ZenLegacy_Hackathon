@@ -64,5 +64,9 @@ You will need the following to run IntelliFit:
    ```bash
    Run the application:
 
+## Future Work
 
-
+- **Real-time Feedback**: Add real-time audio cues for posture correction during workouts.
+- **Exercise Variety**: Extend exercise detection to include more workout types.
+- **Posture Correction**: Implement AI-driven posture correction to improve user form.
+- **Gait Analysis**: Add gait analysis for walking and running exercises, enhancing athletic training.
