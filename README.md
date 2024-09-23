@@ -2,8 +2,7 @@
 
 **IntelliFit** automates exercise tracking and guidance, ensuring users can focus on their workouts while receiving real-time feedback. The system uses advanced computer vision techniques to recognize exercises, count repetitions, analyze posture, and track progress.
 
-
-![Uploading pushups-sample-out-ezgif.com-optimize.gif…]()
+![pushups-sample-out-ezgif com-optimize](https://github.com/user-attachments/assets/47cd3d88-b9eb-43c8-8fc1-068aace59706)
 
 ## Key Features
 
