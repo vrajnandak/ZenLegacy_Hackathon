@@ -70,3 +70,4 @@ You will need the following to run IntelliFit:
 - **Exercise Variety**: Extend exercise detection to include more workout types.
 - **Posture Correction**: Implement AI-driven posture correction to improve user form.
 - **Gait Analysis**: Add gait analysis for walking and running exercises, enhancing athletic training.
+- **Voice Command**: The rep counter and other features gets activated through voice command
